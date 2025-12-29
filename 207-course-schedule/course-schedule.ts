@@ -8,8 +8,6 @@ function canFinish(numCourses: number, prerequisites: number[][]): boolean {
         in_degree[a]++;
         adj_list.get(b).push(a); 
     }
-
-    console.log(in_degree, adj_list)
     
     let queue: number[] = [];
     for (let i = 0; i < in_degree.length; i++) {
@@ -17,8 +15,6 @@ function canFinish(numCourses: number, prerequisites: number[][]): boolean {
             queue.push(i);
         }
     }
-
-    console.log(queue, 'queue')
 
     let count = 0; 
 
