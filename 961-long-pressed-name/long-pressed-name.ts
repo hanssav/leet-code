@@ -15,7 +15,7 @@ function isLongPressedName(name: string, typed: string): boolean {
         }
     }
 
-    console.log(j === typed.length, i === name.length, 'res', false === false)
-    console.log(i === name.length - 1 && j === typed.length - 1 , 'check condition')
+    // console.log(j === typed.length, i === name.length, 'res', false === false)
+    // console.log(i === name.length - 1 && j === typed.length - 1 , 'check condition')
     return i === name.length && j === typed.length ? true : false 
 };
