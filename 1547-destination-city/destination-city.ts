@@ -9,7 +9,7 @@ function destCity(paths: string[][]): string {
     }
 
     for(let city of all_cities){
-        console.log(typeof city, sources.has(city))
+        // console.log(typeof city, sources.has(city))
         if(!sources.has(city)) return city; 
     }
 
