@@ -1,4 +1,20 @@
 function findCheapestPrice(n: number, flights: number[][], src: number, dst: number, k: number): number {
+    /* 
+    * n = cities
+    * flights[i] = [from, to, price]; 
+    * src = start; 
+    * dst = destination; 
+    * k = max transit; 
+
+    *if no route return -1;
+
+    * question: return the cheapest price from src to dst; 
+
+    * check posibilities direct transit; 
+    * loop using queue/ stack; 
+    * check has visited too; 
+    */
+
     const adj = new Map<number, [number, number][]>();
     for (const [s, d, p] of flights) {
         if (!adj.has(s)) adj.set(s, []);
