@@ -1,5 +1,9 @@
 function canThreePartsEqualSum(arr: number[]): boolean {
-    const total = arr.reduce((acc, curr) => acc + curr, 0); 
+    // Hitung total dengan loop biasa (seringkali lebih cepat dari reduce)
+    let total = 0;
+    for (let i = 0; i < arr.length; i++) {
+        total += arr[i];
+    }
 
     if(total % 3 !== 0) return false;
     
@@ -9,15 +13,17 @@ function canThreePartsEqualSum(arr: number[]): boolean {
 
     // console.log(total, target)
 
-    for(const num of arr){
-        count += num
+    for(let i = 0; i < arr.length; i++){
+        count += arr[i]
 
         if(count === target){
             res++; 
             count = 0;
+
+            if(res === 2 && i < arr.length - 1) return true;
         }
         // console.log(res, num, count, target)
     }
 
-    return res > 2 ? true : false 
+    return false
 };
