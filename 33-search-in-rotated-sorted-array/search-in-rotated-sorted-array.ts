@@ -21,7 +21,7 @@ function search(nums: number[], target: number): number {
             }
         }
 
-        console.log(left, right)
+        // console.log(left, right)
     }
 
     return -1;
