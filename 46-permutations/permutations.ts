@@ -8,7 +8,10 @@ function permute(nums: number[]): number[][] {
             return;
         }
 
+        // console.log(curr, i)
         for(let i = start; i <= n; i++){
+            // console.log(i)
+
             [nums[start], nums[i]] = [nums[i], nums[start]]; 
             bctr(start + 1, curr); 
             [nums[i], nums[start]] = [nums[start], nums[i]]
