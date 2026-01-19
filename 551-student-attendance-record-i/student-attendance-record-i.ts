@@ -19,6 +19,6 @@ function checkRecord(s: string): boolean {
         // if(str === "L" && m.get(str) > 2) return false;
     }
 
-    console.log(m, 'm')
+    // console.log(m, 'm')
     return true;
 };
