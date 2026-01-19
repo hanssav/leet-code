@@ -6,7 +6,7 @@ function multiply(num1: string, num2: string): string {
     // untuk menampung hasil perkalian sementara sebelum join
     const temp = Array(n1 + n2).fill(0)
     
-    console.log(temp)
+    // console.log(temp)
     
     for(let i = n1 - 1; i >= 0; i--){
         for(let j = n2 - 1; j >= 0; j--){
