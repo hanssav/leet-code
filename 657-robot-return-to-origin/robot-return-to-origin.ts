@@ -11,8 +11,6 @@ function judgeCircle(moves: string): boolean {
     for(let move of moves){
         curr[0] += nav[move][0]
         curr[1] += nav[move][1]
-
-        console.log(curr, 'curr')
     }
 
     return curr[0] === 0 && curr[1] === 0 ? true : false;
