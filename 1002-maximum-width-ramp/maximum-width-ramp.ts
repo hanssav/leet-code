@@ -1,27 +1,54 @@
 function maxWidthRamp(nums: number[]): number {
-    const n = nums.length;
-    const rightMax = new Array(n);
+    const stack: number[] = [];
+    let max = 0;
     
-    // Precompute max values from right
-    rightMax[n - 1] = nums[n - 1];
-    for (let i = n - 2; i >= 0; i--) {
-        rightMax[i] = Math.max(nums[i], rightMax[i + 1]);
-    }
-    
-    let i = 0, j = 1, max = 0;
-    
-    while (j < n) {
-        if (nums[i] <= rightMax[j]) {
-            max = Math.max(max, j - i);
-            j++;
+    for (let j = 0; j < nums.length; j++) {
+        if (stack.length === 0 || nums[j] < nums[stack[stack.length - 1]]) {
+            stack.push(j);
         } else {
-            i++;
-            if (i === j) j++;
+            // Binary search to find leftmost valid i
+            let left = 0, right = stack.length - 1;
+            while (left <= right) {
+                const mid = Math.floor((left + right) / 2);
+                if (nums[stack[mid]] <= nums[j]) {
+                    right = mid - 1;
+                } else {
+                    left = mid + 1;
+                }
+            }
+            if (left < stack.length) {
+                max = Math.max(max, j - stack[left]);
+            }
         }
     }
     
     return max;
 }
+
+// function maxWidthRamp(nums: number[]): number {
+//     const n = nums.length;
+//     const rightMax = new Array(n);
+    
+//     // Precompute max values from right
+//     rightMax[n - 1] = nums[n - 1];
+//     for (let i = n - 2; i >= 0; i--) {
+//         rightMax[i] = Math.max(nums[i], rightMax[i + 1]);
+//     }
+    
+//     let i = 0, j = 1, max = 0;
+    
+//     while (j < n) {
+//         if (nums[i] <= rightMax[j]) {
+//             max = Math.max(max, j - i);
+//             j++;
+//         } else {
+//             i++;
+//             if (i === j) j++;
+//         }
+//     }
+    
+//     return max;
+// }
 
 // function maxWidthRamp(nums: number[]): number {
 //     let max = 0;
